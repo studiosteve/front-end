@@ -5,7 +5,7 @@
 		$routeProvider
 		.when("/users",{
 			templateUrl: './views/users.html',
-			controller: 'UserController'
+			controller: 'UsersController'
 		})
 		.otherwise({redirectTo:'/users'});
 	});
