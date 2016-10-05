@@ -1,7 +1,7 @@
 (function(){
 	var app = angular.module('sociaLite');
 
-	var UsersController = function($scope,$http,$routeParams){
+	var UsersController = function($scope,$http,$routeParams,$location){
 
 		$scope.getUsers = ()=>{
 			return $http.get("http://localhost:4000/users")
@@ -10,21 +10,10 @@
 			});
 		};
 
-		$scope.sendUser = ()=>{
-			
-			var newUser = {
-				name: user.name,
-				email: user.email,
-				password: user.pw
-			};
-
-			$scope.postUser(newUser);
-		};
-
 		$scope.postUser = user=>{
-			return $http.post("http://localhost:4000/users",user)
+			$http.post("http://localhost:4000/users",user)
 			.then(response=>{
-				return response.data;
+				$location.path("/users");
 			});
 		};
 
