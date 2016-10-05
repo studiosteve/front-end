@@ -10,9 +10,15 @@
 			});
 		};
 
-		return {
-			getUsers
-		}
+		var onUserComplete = data =>{
+			$scope.users = data;
+		};
+
+		var onError = reason =>{
+			$scope.error = "Error: " + reason;
+		};
+
+		getUsers().then(onUserComplete,onError);
 	};
 
 	app.controller('UsersController',UsersController);
