@@ -10,6 +10,14 @@
 			});
 		};
 
+		$scope.getUser = user=>{
+			var id = user._id
+			return $http.get("http://localhost:4000/users/" + id)
+			.then(function(response){
+				return response.data;
+			});
+		};
+
 		$scope.postUser = user=>{
 			$http.post("http://localhost:4000/users",user)
 			.then(response=>{
